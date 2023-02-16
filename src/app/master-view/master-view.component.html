@@ -1,0 +1,14 @@
+<igx-grid [data]="dataSource2ApiTasks" primaryKey="taskId" displayDensity="cosy" [rowEditable]="true" [allowFiltering]="true" filterMode="excelStyleFilter" (rowAdded)="apiRowAdded($event)" (rowDeleted)="apiRowDeleted($event)" (rowEditDone)="apiRowEditDone($event)" class="grid">
+  <igx-column field="taskId" dataType="number" header="taskId" [hidden]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="taskName" dataType="string" header="taskName" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="dateAdded" dataType="string" header="dateAdded" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="dateUpdated" dataType="string" header="dateUpdated" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="dateDue" dataType="string" header="dateDue" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="projectId" dataType="number" header="projectId" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="assignedToEmail" dataType="string" header="assignedToEmail" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="priority" dataType="number" header="priority" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-action-strip>
+    <igx-grid-pinning-actions></igx-grid-pinning-actions>
+    <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
+  </igx-action-strip>
+</igx-grid>
