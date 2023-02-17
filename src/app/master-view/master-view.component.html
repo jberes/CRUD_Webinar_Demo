@@ -1,5 +1,5 @@
 <igx-grid [data]="dataSource2ApiTasks" primaryKey="taskId" displayDensity="cosy" [rowEditable]="true" [allowFiltering]="true" filterMode="excelStyleFilter" (rowAdded)="apiRowAdded($event)" (rowDeleted)="apiRowDeleted($event)" (rowEditDone)="apiRowEditDone($event)" class="grid">
-  <igx-column field="taskId" dataType="number" header="taskId" [hidden]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="taskId" dataType="number" header="taskId" [hidden]="false" [sortable]="true" [selectable]="false"></igx-column>
   <igx-column field="taskName" dataType="string" header="taskName" [sortable]="true" [selectable]="false"></igx-column>
   <igx-column field="dateAdded" dataType="string" header="dateAdded" [sortable]="true" [selectable]="false"></igx-column>
   <igx-column field="dateUpdated" dataType="string" header="dateUpdated" [sortable]="true" [selectable]="false"></igx-column>
