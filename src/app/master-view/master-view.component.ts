@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IGridEditDoneEventArgs, IRowDataEventArgs } from '@infragistics/igniteui-angular';
+import { firstValueFrom } from 'rxjs';
 import { DataSource2Service } from '../services/data-source2.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { DataSource2Service } from '../services/data-source2.service';
   styleUrls: ['./master-view.component.scss']
 })
 export class MasterViewComponent implements OnInit {
-  public dataSource2ApiTasks: any = null;
+  public dataSource2ApiTasks: Array<any> = [];
 
   constructor(
     private dataSource2Service: DataSource2Service,
@@ -19,8 +20,10 @@ export class MasterViewComponent implements OnInit {
     this.dataSource2Service.getApiTasks().subscribe(data => this.dataSource2ApiTasks = data);
   }
 
-  public apiRowAdded(args: IRowDataEventArgs) {
-    this.dataSource2Service.postApiTaskSp(args.data).subscribe();
+  async apiRowAdded(event: IRowDataEventArgs) {
+    var newFeature = await firstValueFrom(this.dataSource2Service.postApiTaskSp(event.data));
+    this.dataSource2ApiTasks[this.dataSource2ApiTasks.length - 1] = newFeature;
+    this.dataSource2ApiTasks = [...this.dataSource2ApiTasks];
   }
 
   public apiRowDeleted(args: IRowDataEventArgs) {
